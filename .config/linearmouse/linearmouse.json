@@ -1,0 +1,27 @@
+{
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.9.3",
+  "schemes" : [
+    {
+      "if" : {
+        "device" : {
+          "productName" : "MX Master 3",
+          "serialNumber" : "8D2F5E2DD41D706B",
+          "productID" : "0xb023",
+          "category" : "mouse",
+          "vendorID" : "0x46d"
+        }
+      },
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true
+        },
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "speed" : {
+          "vertical" : 3
+        }
+      }
+    }
+  ]
+}
