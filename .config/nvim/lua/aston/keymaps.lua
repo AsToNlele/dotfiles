@@ -18,8 +18,9 @@ Map("n", "<C-h>", "<C-w>h")
 Map("n", "<C-j>", "<C-w>j")
 Map("n", "<C-k>", "<C-w>k")
 Map("n", "<C-l>", "<C-w>l")
-Map("n", "<leader>x", "<cmd>:bdelete!<CR>")
-
+Map("n", "<leader>bx", "<cmd>:bdelete!<CR>")
+Map("n", "<leader>be", "<cmd>:BufCurOnly<CR>")
+Map("n", "<leader>ba", "<cmd>::%bd<CR>")
 
 Map("n", "<leader>gF", function()
 	vim.lsp.buf.format({ timeout_ms = 2000 })

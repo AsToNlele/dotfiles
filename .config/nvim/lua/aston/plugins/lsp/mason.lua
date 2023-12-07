@@ -35,7 +35,8 @@ return {
         "lua_ls",
         "emmet_ls",
         "prismals",
-        "pyright",
+        -- "pyright", Using the one from pip
+	"jedi_language_server",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
