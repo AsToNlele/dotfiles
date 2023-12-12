@@ -7,11 +7,22 @@ function Map(mode, lhs, rhs, opts)
 end
 
 Map('n', '<leader>w', "<cmd>:w<CR>")
-Map('n', '<leader>q', "<cmd>:qa!<CR>")
+Map('n', '<leader>qq', "<cmd>:q!<CR>")
+Map('n', '<leader>qa', "<cmd>:qa!<CR>")
 
 -- Switch between buffers
-Map('n', '<S-l>', ":bnext <CR>")
-Map('n', '<S-h>', ":bprevious <CR>")
+-- Map('n', '<S-l>', ":bnext <CR>")
+-- Map('n', '<S-h>', ":bprevious <CR>")
+
+Map('n', '<S-l>', ":tabnext <CR>")
+Map('n', '<S-h>', ":tabprevious <CR>")
+
+-- Move current split to a new tab
+-- Default
+-- Ctrl + W + Shift + T
+-- New
+-- Leader + T
+Map('n', '<leader>t', "<C-w>T")
 
 -- Switch between panes
 Map("n", "<C-h>", "<C-w>h")
@@ -26,3 +37,6 @@ Map("n", "<leader>gF", function()
 	vim.lsp.buf.format({ timeout_ms = 2000 })
 end
 )
+
+-- nmap <buffer> gD :tab LspDefinition<CR>
+Map("n", "<leader>gD", "<cmd>tab split | lua vim.lsp.buf.definition()<cr>")

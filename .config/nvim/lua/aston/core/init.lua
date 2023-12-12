@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 vim.opt.termguicolors = true -- enable 24-bit RGB colors
 vim.opt.clipboard = "unnamedplus"
 vim.opt.undofile = true      -- enable persistent undo
-vim.opt.laststatus = 3 -- single status line
+vim.opt.laststatus = 2 -- single status line
 -- Highlight Yanked Text
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	callback = function()
