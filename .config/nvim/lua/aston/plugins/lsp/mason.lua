@@ -36,7 +36,7 @@ return {
         "emmet_ls",
         "prismals",
         -- "pyright", Using the one from pip
-	"jedi_language_server",
+	-- "jedi_language_server", testing if jedi is needed
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed

@@ -24,6 +24,9 @@ Map('n', '<S-h>', ":tabprevious <CR>")
 -- Leader + T
 Map('n', '<leader>t', "<C-w>T")
 
+-- Delete between tags
+-- dit
+
 -- Switch between panes
 Map("n", "<C-h>", "<C-w>h")
 Map("n", "<C-j>", "<C-w>j")

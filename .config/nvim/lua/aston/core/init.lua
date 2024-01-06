@@ -1,4 +1,5 @@
 vim.wo.relativenumber = true
+vim.wo.number = true
 vim.g.mapleader = " "
 vim.opt.termguicolors = true -- enable 24-bit RGB colors
 vim.opt.clipboard = "unnamedplus"

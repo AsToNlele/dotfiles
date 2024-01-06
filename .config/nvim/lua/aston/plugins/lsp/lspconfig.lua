@@ -137,18 +137,18 @@ return {
 			on_attach = on_attach,
 		})
 
-		lspconfig["jedi_language_server"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = { -- custom settings for lua
-				Lua = {
-					-- make the language server recognize "vim" global
-					diagnostics = {
-						enable = true
-					},
-				}
-			}
-		})
+		-- lspconfig["jedi_language_server"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	settings = { -- custom settings for lua
+		-- 		Lua = {
+		-- 			-- make the language server recognize "vim" global
+		-- 			diagnostics = {
+		-- 				enable = true
+		-- 			},
+		-- 		}
+		-- 	}
+		-- })
 
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({

@@ -49,10 +49,15 @@ return {
 			git = {
 				ignore = false,
 			},
+			update_cwd = true,
+			update_focused_file = {
+				enable = true,
+				update_cwd = true,
+			}
 		})
 
 		-- set keymaps
-		local keymap = vim.keymap                                                      -- for conciseness
+		local keymap = vim.keymap                                                    -- for conciseness
 
 		keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
 	end,
