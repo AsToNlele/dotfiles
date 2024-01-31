@@ -3,7 +3,7 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	opts = {
 		options = {
-			mode = "tabs",
+			mode = "default",  -- "tabs" for tabs
 			separator_style = "thin",
 		},
 	},
