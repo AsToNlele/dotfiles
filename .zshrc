@@ -22,6 +22,8 @@ esac
 
 export EDITOR='nvim'
 export VISUAL='nvim'
+export DISABLE_AUTO_TITLE="true"
+export AUTO_TITLE=false
 
 alias vim=nvim
 alias lla='ls -la'
@@ -32,6 +34,10 @@ alias gc-='git checkout -'
 alias grc='gh repo clone'
 alias ta='tmux attach'
 alias td='tmux detach'
+alias vimconf='cd ~/.config/nvim && nvim'
+alias zshconf='vim ~/.zshrc && source ~/.zshrc'
+alias v=vim
+alias p=pnpm
 
 # git lg
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
