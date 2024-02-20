@@ -38,6 +38,7 @@ alias vimconf='cd ~/.config/nvim && nvim'
 alias zshconf='vim ~/.zshrc && source ~/.zshrc'
 alias v=vim
 alias p=pnpm
+alias nvimdiff='nvim -d'
 
 # git lg
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
@@ -57,8 +58,10 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$PYENV_ROOT/shims:${PATH}"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
 alias pm='python manage.py'
-alias nvimdiff='nvim -d'
+alias celeryw='celery -A myproject worker --loglevel=INFO'
+alias celeryb='celery -A myproject beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler\n'
 
 bindkey -s "^f" "tmux new ~/scripts/tmux-sessionizer\n"
 

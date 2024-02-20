@@ -6,19 +6,19 @@ function Map(mode, lhs, rhs, opts)
 	vim.keymap.set(mode, lhs, rhs, options)
 end
 
-Map('n', '<leader>w', "<cmd>:w<CR>")
-Map('n', '<leader>qq', "<cmd>:q!<CR>")
-Map('n', '<leader>qa', "<cmd>:qa!<CR>")
+Map("n", "<leader>w", "<cmd>:w<CR>")
+Map("n", "<leader>qq", "<cmd>:q!<CR>")
+Map("n", "<leader>qa", "<cmd>:qa!<CR>")
 
 -- Switch between buffers
-Map('n', '<S-l>', ":bnext <CR>")
-Map('n', '<S-h>', ":bprevious <CR>")
+Map("n", "<S-l>", "<cmd>:BufferLineCycleNext <CR>")
+Map("n", "<S-h>", "<cmd>:BufferLineCyclePrev <CR>")
 
 -- Not using Tabs anymore
--- 
+--
 -- Go to definition on new tab
 -- Map("n", "<leader>gD", "<cmd>tab split | lua vim.lsp.buf.definition()<cr>")
--- Switch between tabs 
+-- Switch between tabs
 -- Map('n', '<S-l>', ":tabnext <CR>")
 -- Map('n', '<S-h>', ":tabprevious <CR>")
 
@@ -44,8 +44,11 @@ Map("n", "<leader>ba", "<cmd>::%bd<CR>")
 
 Map("n", "<leader>gF", function()
 	vim.lsp.buf.format({ timeout_ms = 2000 })
-end
-)
+end)
+
+-- Move buffers
+Map("n", "<leader>l", "<cmd>:BufferLineMoveNext<CR>")
+Map("n", "<leader>h", "<cmd>:BufferLineMovePrev<CR>")
 
 -- nmap <buffer> gD :tab LspDefinition<CR>
 
