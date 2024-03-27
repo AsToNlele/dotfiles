@@ -1,6 +1,17 @@
 #!/usr/bin/env bash
 
-selected=$(find ~/dev -mindepth 1 -maxdepth 1 -type d | fzf)
+USERNAME="$(whoami)"
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    if [[ $USERNAME =~ "acelakov" ]];
+    then
+        selected=$(find ~/dev ~/redhat -mindepth 1 -maxdepth 1 -type d | fzf)
+    else
+        selected=$(find ~/dev -mindepth 1 -maxdepth 1 -type d | fzf)
+    fi
+fi
 
 if [[ -z $selected ]]; then
     exit 0
