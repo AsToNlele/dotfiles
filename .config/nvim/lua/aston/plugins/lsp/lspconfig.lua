@@ -161,13 +161,14 @@ return {
         lspconfig["pyright"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
+            filetypes = { "python" },
         })
 
-        -- lspconfig["eslint"].setup({
-        --     -- pnpm i -g vscode-langservers-extracted
-        --     capabilities = capabilities,
-        --     on_attach = on_attach,
-        -- })
+        lspconfig["eslint"].setup({
+            -- pnpm i -g vscode-langservers-extracted
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
 
         -- lspconfig["jedi_language_server"].setup({
         -- 	capabilities = capabilities,

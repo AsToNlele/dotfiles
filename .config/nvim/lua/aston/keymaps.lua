@@ -32,6 +32,9 @@ Map("n", "<S-h>", "<cmd>:BufferLineCyclePrev <CR>")
 -- Delete between tags
 -- dit
 
+-- Select last selection
+-- gv
+
 -- Switch between panes
 Map("n", "<C-h>", "<C-w>h")
 Map("n", "<C-j>", "<C-w>j")
@@ -45,6 +48,8 @@ Map("n", "<leader>ba", "<cmd>::%bd<CR>")
 Map("n", "<leader>gF", function()
 	vim.lsp.buf.format({ timeout_ms = 2000 })
 end)
+
+Map("n", "<leader>gE", "<cmd>:EslintFixAll<CR>")
 
 -- Move buffers
 Map("n", "<leader>l", "<cmd>:BufferLineMoveNext<CR>")

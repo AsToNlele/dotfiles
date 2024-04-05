@@ -117,6 +117,6 @@ else
 
     alias pm='python manage.py'
     alias celeryw='celery -A myproject worker --loglevel=INFO'
-    alias celeryb='celery -A myproject beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler\n'
+    alias celeryb='celery -A myproject beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler'
 
 fi
