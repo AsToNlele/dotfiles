@@ -45,7 +45,7 @@ return {
 		priority = 1000,
 		config = function()
 			require("dracula").setup({
-				transparent = false,
+				transparent = true,
 			})
 			vim.cmd([[colorscheme dracula]])
 		end,
