@@ -80,6 +80,9 @@ then
     alias nrsb="npm run start:proxy:beta"
     alias nirsb="cleaninstall && npm run start:proxy:beta"
     alias ni="npm i"
+    alias ns="npm start"
+    alias nsp="npm run start:proxy"
+    alias nspp="PROXY=true npx fec dev --clouddotEnv stage --uiEnv beta"
 
     export GOPATH=$HOME/go
     
