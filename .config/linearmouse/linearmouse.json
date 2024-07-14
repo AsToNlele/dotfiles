@@ -1,25 +1,40 @@
 {
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.9.3",
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.9.5",
   "schemes" : [
     {
-      "if" : {
-        "device" : {
-          "productName" : "MX Master 3",
-          "serialNumber" : "8D2F5E2DD41D706B",
-          "productID" : "0xb023",
-          "category" : "mouse",
-          "vendorID" : "0x46d"
-        }
-      },
       "scrolling" : {
-        "reverse" : {
-          "vertical" : true
-        },
         "acceleration" : {
           "vertical" : 1
         },
         "speed" : {
           "vertical" : 3
+        },
+        "reverse" : {
+          "vertical" : true
+        }
+      },
+      "if" : {
+        "device" : {
+          "productID" : "0xb023",
+          "vendorID" : "0x46d",
+          "productName" : "MX Master 3",
+          "serialNumber" : "8D2F5E2DD41D706B",
+          "category" : "mouse"
+        }
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "vendorID" : "0x10c4",
+          "productName" : "USB OPTICAL MOUSE",
+          "productID" : "0x8108"
+        }
+      },
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true
         }
       }
     }

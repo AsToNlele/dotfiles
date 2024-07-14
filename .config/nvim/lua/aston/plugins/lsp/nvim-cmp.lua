@@ -32,10 +32,10 @@ return {
 			sources = cmp.config.sources({
 				{
 					name = "nvim_lsp",
-					entry_filter = function(entry, ctx)
-						-- Disable LSP snippets
-						return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
-					end,
+					-- entry_filter = function(entry, ctx)
+					-- 	-- Disable LSP snippets
+					-- 	-- return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
+					-- end,
 				},
 				{ name = "luasnip" }, -- snippets
 				{ name = "buffer" }, -- text within current buffer

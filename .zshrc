@@ -21,6 +21,7 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export DISABLE_AUTO_TITLE="true"
 export AUTO_TITLE=false
+export LANG=en_US.UTF-8
 
 alias vim=nvim
 alias v=nvim
@@ -112,6 +113,7 @@ else
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
     export PATH="$PYENV_ROOT/shims:${PATH}"
+    export PATH="$HOME/scripts:$PATH"
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
 

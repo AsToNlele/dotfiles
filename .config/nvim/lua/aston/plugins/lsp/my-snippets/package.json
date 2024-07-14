@@ -40,6 +40,10 @@
             {
                 "language": ["javascriptreact", "typescriptreact"],
                 "path": "./snippets/javascript/react-es7.json"
+            },
+            {
+                "language": "html",
+                "path": "./snippets/html.json"
             }
         ]
     }
