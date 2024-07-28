@@ -39,13 +39,24 @@ return {
 			-- vim.cmd([[colorscheme cyberdream]])
 		end,
 	},
+	-- {
+	-- 	"maxmx03/dracula.nvim",
+	-- 	name = "dracula",
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("dracula").setup({
+	-- 			transparent = true,
+	-- 		})
+	-- 		vim.cmd([[colorscheme dracula]])
+	-- 	end,
+	-- },
 	{
-		"maxmx03/dracula.nvim",
+		"Mofiqul/dracula.nvim",
 		name = "dracula",
 		priority = 1000,
 		config = function()
 			require("dracula").setup({
-				transparent = true,
+				transparent_bg = true, -- default false
 			})
 			vim.cmd([[colorscheme dracula]])
 		end,
