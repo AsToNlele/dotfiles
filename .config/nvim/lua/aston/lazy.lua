@@ -8,7 +8,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ { import = "aston.plugins" }, { import = "aston.plugins.lsp" } }, {
   install = {
-    colorscheme = { "catppuccin-mocha" },
+    colorscheme = { "catppuccin" },
   },
   checker = {
     enabled = true,

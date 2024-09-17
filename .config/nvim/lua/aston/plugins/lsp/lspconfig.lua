@@ -158,11 +158,11 @@ return {
 		})
 
 		-- configure python server
-		lspconfig["pyright"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetypes = { "python" },
-		})
+		-- lspconfig["pyright"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	filetypes = { "python" },
+		-- })
 
 		lspconfig["eslint"].setup({
 			-- pnpm i -g vscode-langservers-extracted
@@ -214,9 +214,19 @@ return {
 					},
 					diagnostics = {
 						enable = true,
+						experimental = {
+							enable = true,
+						},
 					},
 				},
 			},
+		})
+
+		
+		-- configure tailwindcss server
+		lspconfig["dartls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
 		})
 	end,
 }

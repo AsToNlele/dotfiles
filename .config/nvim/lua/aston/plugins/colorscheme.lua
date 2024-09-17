@@ -4,11 +4,22 @@ return {
 		name = "catppuccin",
 		priority = 1000,
 		config = function()
+			local flavour = "latte"
+			local apple_interface_style = vim.fn.system("defaults read -g AppleInterfaceStyle")
+			if apple_interface_style == "Dark\n" then
+				flavour = "mocha"
+			end
+
 			require("catppuccin").setup({
-				colorscheme = "mocha",
+				flavour = flavour,
 				transparent_background = true,
+				color_overrides = {
+					latte = {
+						base = "#ffffff",
+					},
+				},
 			})
-			-- vim.cmd([[colorscheme catppuccin]])
+			vim.cmd([[colorscheme catppuccin]])
 		end,
 	},
 	{
@@ -58,7 +69,7 @@ return {
 			require("dracula").setup({
 				transparent_bg = true, -- default false
 			})
-			vim.cmd([[colorscheme dracula]])
+			-- vim.cmd([[colorscheme dracula]])
 		end,
 	},
 }

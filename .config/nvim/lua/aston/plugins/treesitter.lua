@@ -59,4 +59,7 @@ return {
       require('ts_context_commentstring').setup {}
     end,
   },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  }
 }

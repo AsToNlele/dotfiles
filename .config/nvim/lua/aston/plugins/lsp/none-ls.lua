@@ -26,7 +26,7 @@ return {
 
 		-- for conciseness
 		local formatting = null_ls.builtins.formatting -- to setup formatters
-		local diagnostics = null_ls.builtins.diagnostics -- to setup linters
+		-- local diagnostics = null_ls.builtins.diagnostics -- to setup linters
 
 		-- to setup format on save
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -46,7 +46,7 @@ return {
 				formatting.isort,
 				formatting.black,
 				-- diagnostics.pylint,
-				diagnostics.pyright,
+				-- diagnostics.pyright,
 				-- diagnostics.eslint_d
                     -- .with({                 -- js/ts linter
 					-- condition = function(utils)

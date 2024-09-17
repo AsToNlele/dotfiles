@@ -17,9 +17,12 @@ return {
 
 		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
 		-- require("luasnip.loaders.from_vscode").lazy_load()
-		require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/nvim/lua/aston/plugins/lsp/my-snippets/" } })
+		-- require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/nvim/lua/aston/plugins/lsp/my-snippets/" } })
 
 		cmp.setup({
+			-- performance = {
+			-- 	max_view_entries = ,
+			-- },
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
 			},
@@ -37,7 +40,7 @@ return {
 					-- 	-- return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
 					-- end,
 				},
-				{ name = "luasnip" }, -- snippets
+				-- { name = "luasnip" }, -- snippets
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
 			}),

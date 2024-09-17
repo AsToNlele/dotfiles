@@ -1,0 +1,16 @@
+#!/bin/bash
+# Kills a process that uses a specified port on macOS
+# Usage "./kpp 1337"
+if [[ $1 == "-h" ]];
+then
+    echo "Kills a process that uses a specified port on macOS"
+    echo "Usage ./kpp 1337"
+else
+    pid=$(sudo lsof -i:$1 -P | grep LISTEN | sudo awk '{print $2}')
+    if [[ $pid ]]
+    then
+        sudo kill -9 --verbose $pid && echo "Killed process $pid"
+    else
+        echo "Port is not used by a process"
+    fi
+fi
