@@ -19,6 +19,9 @@ export VISUAL='nvim'
 export DISABLE_AUTO_TITLE="true"
 export AUTO_TITLE=false
 export LANG=en_US.UTF-8
+export HUSKY=0
+export PATH="/Users/acelakov/scripts:$PATH"
+export PATH="/Users/acelakov/dev/tmux:$PATH"
 
 alias vim=nvim
 alias v=nvim
@@ -44,8 +47,17 @@ alias grep='ggrep'
 alias podman-compose='podman compose'
 alias docker=podman
 
-export HUSKY=0
-export SAIL_SKIP_CHECKS=true
+alias cleaninstall="rm -rf node_modules && npm i"
+alias rh="sh ~/rh.sh"
+alias nrs="npm run start:proxy"
+alias nirs="cleaninstall && npm run start:proxy"
+alias nrsb="npm run start:proxy:beta"
+alias nirsb="cleaninstall && npm run start:proxy:beta"
+alias ni="npm i"
+alias ns="npm start"
+alias nsp="npm run start:proxy"
+alias nspp="PROXY=true npx fec dev --clouddotEnv stage"
+alias nispp="cleaninstall && nspp"
 
 # git lg
 git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
@@ -53,47 +65,11 @@ git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(ye
 git config --global alias.ci '!git checkout $(git branch -a | fzf | xargs)'
 
 
-# bindkey -s "^f" "tmux new ~/scripts/tmux-sessionizer\n"
 bindkey -s ^f "tmux-sessionizer\n"
 
 # pyenv
 # eval "$(pyenv init -)"
 # if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
-
-USERNAME="$(whoami)"
-# RH Only
-if [[ $USERNAME =~ "acelakov" ]];
-then
-    # export NVM_DIR="$HOME/.nvm"
-    # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-    
-    export PATH="/home/acelakov/scripts:$PATH"
-    export PATH="/home/acelakov/dev/tmux:$PATH"
-    export PATH="/Users/acelakov/scripts:$PATH"
-    export PATH="/Users/acelakov/dev/tmux:$PATH"
-     
-    # # IQE
-    # export DYNACONF_IQE_VAULT_LOADER_ENABLED=true
-    # export DYNACONF_IQE_VAULT_URL="https://vault.devshift.net/"
-    # export DYNACONF_IQE_VAULT_VERIFY=true
-    # export DYNACONF_IQE_VAULT_MOUNT_POINT="insights"
-    # export DYNACONF_IQE_VAULT_OIDC_AUTH="1"
-    # export REQUESTS_AAACA_BUNDLE=~/bundle.crt
-    
-    alias cleaninstall="rm -rf node_modules && npm i"
-    alias rh="sh ~/rh.sh"
-    alias nrs="npm run start:proxy"
-    alias nirs="cleaninstall && npm run start:proxy"
-    alias nrsb="npm run start:proxy:beta"
-    alias nirsb="cleaninstall && npm run start:proxy:beta"
-    alias ni="npm i"
-    alias ns="npm start"
-    alias nsp="npm run start:proxy"
-    alias nspp="PROXY=true npx fec dev --clouddotEnv stage"
-    alias nispp="cleaninstall && nspp"
-fi
 
 # pnpm
 export PNPM_HOME="/Users/acelakov/Library/pnpm"
@@ -103,11 +79,13 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-# zprof
 # export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
   export PATH=/opt/homebrew/opt/ruby/bin:$PATH
   export PATH=`gem environment gemdir`/bin:$PATH
 fi
+
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# zprof

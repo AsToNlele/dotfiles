@@ -7,7 +7,7 @@ if [[ $# -eq 1 ]]; then
 else
     if [[ $USERNAME =~ "acelakov" ]];
     then
-        selected=$(find ~/dev ~/redhat -mindepth 1 -maxdepth 1 -type d | fzf)
+        selected=$(find ~/dev ~/redhat ~/ -mindepth 1 -maxdepth 1 -type d | fzf)
     else
         selected=$(find ~/dev -mindepth 1 -maxdepth 1 -type d | fzf)
     fi
