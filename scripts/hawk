@@ -1,0 +1,27 @@
+#!/bin/bash
+
+help() {
+    echo "Usage: ";
+    echo "hawk tuah - git push";
+    echo "hawk tuah spit - git push --force-with-lease --force-if-includes";
+    echo "hawk tuah spit on that thang - git push --force";
+}
+
+if [[ $# -eq 0 ]]; then
+    help
+elif [ "$#" -ge 1 ] && [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+    help
+elif [ "$#" -ge 1 ] && [ "$1" == "tuah" ]; then
+    if [ "$#" -eq 1 ]; then
+        git push
+    elif [ "$#" -eq 2 ] && [ "$2" == "spit" ]; then
+        git push --force-with-lease --force-if-includes
+    elif [ "$#" -eq 5 ] && [ "$2" == "spit" ] && [ "$3" == "on" ] && [ "$4" == "that" ] && [ "$5" == "thang" ]; then
+        git push --force
+    else
+        help 
+    fi
+    
+fi
+
+
