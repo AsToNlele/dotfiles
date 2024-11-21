@@ -46,6 +46,8 @@ alias kkill='sudo kill -9'
 alias grep='ggrep'
 alias podman-compose='podman compose'
 alias docker=podman
+alias fastfetch="fastfetch --config examples/7.jsonc"
+alias firefox="open -a Firefox\ Developer\ Edition"
 
 alias cleaninstall="rm -rf node_modules && npm i"
 alias rh="sh ~/rh.sh"
@@ -56,6 +58,7 @@ alias nirsb="cleaninstall && npm run start:proxy:beta"
 alias ni="npm i"
 alias ns="npm start"
 alias nsp="npm run start:proxy"
+alias nisp="cleaninstall && nsp"
 alias nspp="PROXY=true npx fec dev --clouddotEnv stage"
 alias nispp="cleaninstall && nspp"
 
@@ -67,7 +70,7 @@ git config --global alias.ci '!git checkout $(git branch -a | fzf | xargs)'
 
 bindkey -s ^f "tmux-sessionizer\n"
 
-# pyenv
+# pyenv, slow af
 # eval "$(pyenv init -)"
 # if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
@@ -84,6 +87,36 @@ if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
   export PATH=/opt/homebrew/opt/ruby/bin:$PATH
   export PATH=`gem environment gemdir`/bin:$PATH
 fi
+
+if [ -d "/opt/homebrew/Cellar/sfml" ]; then
+ export SFML_INCLUDE_DIR="/opt/homebrew/Cellar/sfml/2.6.1/include"
+ export SFML_LIBS_DIR="/opt/homebrew/Cellar/sfml/2.6.1/lib"
+fi
+
+# Add go
+export PATH="$HOME/go/bin:$PATH"
+
+# Add dart 
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+# PGSQL client
+export PATH="$PATH":"/opt/homebrew/Cellar/libpq/17.1/bin"
+
+
+# Bonfire setup
+VENV_DIR=~/bonfire_venv
+# Enable bonfire
+# . $VENV_DIR/bin/activate
+
+# Yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

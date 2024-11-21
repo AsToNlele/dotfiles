@@ -16,6 +16,9 @@ return {
 
 		local opts = { noremap = true, silent = true }
 		local on_attach = function(client, bufnr)
+			-- if vim.lsp.inlay_hint then
+			-- 	vim.lsp.inlay_hint.enable(true, { 0 })
+			-- end
 			opts.buffer = bufnr
 
 			-- set keybinds
@@ -86,7 +89,7 @@ return {
 		end
 
 		-- configure typescript server with plugin
-		lspconfig["tsserver"].setup({
+		lspconfig["ts_ls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			init_options = {
@@ -218,13 +221,33 @@ return {
 							enable = true,
 						},
 					},
+					inlayHints = {
+						enable = true,
+						typeHints = true,
+						parameterHints = true,
+						chainingHints = false,
+					},
 				},
 			},
 		})
 
-		
 		-- configure tailwindcss server
 		lspconfig["dartls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig["astro"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig["intelephense"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+		
+		lspconfig["clangd"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})

@@ -17,3 +17,20 @@ return {
     })
   end,
 }
+-- Not good enough yet eg for Dart
+-- -- Correct commenting for React, Vue, etc
+-- return {
+-- 	"JoosepAlviste/nvim-ts-context-commentstring",
+-- 	config = function()
+-- 		require("ts_context_commentstring").setup({
+-- 			enable_autocmd = false,
+-- 		})
+--
+-- 		-- Override native commenting 
+-- 		local get_option = vim.filetype.get_option
+-- 		vim.filetype.get_option = function(filetype, option)
+-- 			return option == "commentstring" and require("ts_context_commentstring.internal").calculate_commentstring()
+-- 				or get_option(filetype, option)
+-- 		end
+-- 	end,
+-- }

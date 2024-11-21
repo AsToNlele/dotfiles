@@ -20,7 +20,7 @@ Includes neovim, tmux, terminal and zsh config
 
 ### Get Font
 
-[JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip)
+[IosevkaTerm Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/IosevkaTerm.zip)
 
 ### Load settings
 

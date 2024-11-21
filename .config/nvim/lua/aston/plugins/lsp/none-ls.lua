@@ -21,6 +21,7 @@ return {
 				"black", -- python formatter
 				-- "pylint", -- python linter
 				-- "eslint_d", -- js linter
+				"php-cs-fixer",
 			},
 		})
 
@@ -40,19 +41,21 @@ return {
 				--  to disable file types use
 				--  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
 				formatting.prettier.with({
-					extra_filetypes = { "svelte" },
+					extra_filetypes = { "astro" },
 				}), -- js/ts formatter
 				formatting.stylua, -- lua formatter
 				formatting.isort,
 				formatting.black,
+				formatting.dart_format,
 				-- diagnostics.pylint,
 				-- diagnostics.pyright,
 				-- diagnostics.eslint_d
-                    -- .with({                 -- js/ts linter
-					-- condition = function(utils)
-					-- 	return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
-					-- end,
+				-- .with({                 -- js/ts linter
+				-- condition = function(utils)
+				-- 	return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
+				-- end,
 				-- }),
+				formatting.phpcsfixer,
 			},
 			-- configure format on save
 			-- on_attach = function(current_client, bufnr)

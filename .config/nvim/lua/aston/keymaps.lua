@@ -67,7 +67,7 @@ Map("n", "<C-u>", "<C-u>zz")
 Map("n", "<leader>G", "<cmd>:G<CR>")
 
 -- nnoremap <silent> ga <cmd>lua vim.lsp.buf.code_action()<CR> 
-vim.keymap.set({"n", "v", "i"}, 'ga', function()
+vim.keymap.set({"n", "v"}, 'ga', function()
     vim.lsp.buf.code_action() end, bufopts)
 
 -- local function nnoremap(keymap, cmd)

@@ -72,4 +72,5 @@ return {
 			-- vim.cmd([[colorscheme dracula]])
 		end,
 	},
+	{ "rose-pine/neovim", name = "rose-pine" },
 }
