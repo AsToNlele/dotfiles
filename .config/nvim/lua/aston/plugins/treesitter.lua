@@ -4,7 +4,6 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     build = ":TSUpdate",
     dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
       "windwp/nvim-ts-autotag",
     },
     config = function()
@@ -60,7 +59,4 @@ return {
       require('ts_context_commentstring').setup {}
     end,
   },
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-  }
 }

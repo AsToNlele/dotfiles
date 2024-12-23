@@ -48,6 +48,10 @@ alias podman-compose='podman compose'
 alias docker=podman
 alias fastfetch="fastfetch --config examples/7.jsonc"
 alias firefox="open -a Firefox\ Developer\ Edition"
+alias beep="afplay /System/Library/Sounds/Blow.aiff -v 5"
+alias pc="podman compose"
+alias nr="npm run"
+alias ls="lsd"
 
 alias cleaninstall="rm -rf node_modules && npm i"
 alias rh="sh ~/rh.sh"
@@ -116,6 +120,18 @@ function y() {
 		builtin cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
+}
+
+curl_time() {
+    curl -so /dev/null -w "\
+   namelookup:  %{time_namelookup}s\n\
+      connect:  %{time_connect}s\n\
+   appconnect:  %{time_appconnect}s\n\
+  pretransfer:  %{time_pretransfer}s\n\
+     redirect:  %{time_redirect}s\n\
+starttransfer:  %{time_starttransfer}s\n\
+-------------------------\n\
+        total:  %{time_total}s\n" "$@"
 }
 
 

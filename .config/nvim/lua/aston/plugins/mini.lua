@@ -1,5 +1,6 @@
 return {
 	{
+		-- Scope indentation line
 		"echasnovski/mini.indentscope",
 		version = false,
 		event = "BufEnter",
@@ -21,7 +22,22 @@ return {
 					vim.b.miniindentscope_disable = true
 				end,
 			})
-
+		end,
+	},
+	{
+		-- Text objects
+		"echasnovski/mini.ai",
+		version = false,
+		config = function()
+			require("mini.ai").setup()
+		end,
+	},
+	{
+		-- Autopairs
+		"echasnovski/mini.pairs",
+		version = false,
+		config = function()
+			require("mini.pairs").setup()
 		end,
 	},
 }
