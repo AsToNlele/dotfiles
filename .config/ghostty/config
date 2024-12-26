@@ -1,0 +1,5 @@
+font-family="IosevkaTerm Nerd Font Mono"
+font-size=20
+font-thicken=true
+theme=dark:dracula,light:catpuccin-latte
+background-opacity = 0.95
