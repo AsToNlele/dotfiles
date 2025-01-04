@@ -1,3 +1,4 @@
+-- current colorscheme is defined in auto-dark-mode.lua as it depends on the macOS color mode
 return {
 	{
 		"catppuccin/nvim",
@@ -19,58 +20,55 @@ return {
 					},
 				},
 			})
-			vim.cmd([[colorscheme catppuccin]])
 		end,
 	},
 	{
 		"scottmckendry/cyberdream.nvim",
 		lazy = false,
 		priority = 1000,
-		config = function()
-			require("cyberdream").setup({
-				-- Enable transparent background
-				transparent = false,
-
-				-- Enable italics comments
-				italic_comments = false,
-
-				-- Replace all fillchars with ' ' for the ultimate clean look
-				hide_fillchars = false,
-
-				-- Modern borderless telescope theme
-				borderless_telescope = true,
-
-				-- Set terminal colors used in `:terminal`
-				terminal_colors = true,
-
-				theme = {
-					variant = "light", -- use "light" for the light variant. Also accepts "auto" to set dark or light colors based on the current value of `vim.o.background`
-				},
-			})
-			-- vim.cmd([[colorscheme cyberdream]])
-		end,
+		opts = {
+			transparent = false,
+			italic_comments = false,
+			-- Replace all fillchars with ' ' for the ultimate clean look
+			hide_fillchars = false,
+			-- Modern borderless telescope theme
+			borderless_telescope = true,
+			terminal_colors = true,
+			theme = {
+				variant = "auto", -- use "light" for the light variant. Also accepts "auto" to set dark or light colors based on the current value of `vim.o.background`
+			},
+		},
+		config = true,
 	},
-	-- {
-	-- 	"maxmx03/dracula.nvim",
-	-- 	name = "dracula",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("dracula").setup({
-	-- 			transparent = true,
-	-- 		})
-	-- 		vim.cmd([[colorscheme dracula]])
-	-- 	end,
-	-- },
 	{
 		"Mofiqul/dracula.nvim",
 		name = "dracula",
 		priority = 1000,
-		config = function()
-			require("dracula").setup({
-				transparent_bg = true, -- default false
-			})
-			-- vim.cmd([[colorscheme dracula]])
-		end,
+		opts = {
+			transparent_bg = true, -- default false
+		},
+		config = true,
 	},
-	{ "rose-pine/neovim", name = "rose-pine" },
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		priority = 1000,
+	},
+	{
+		"folke/tokyonight.nvim",
+		priority = 1000,
+	},
+	{
+		"akai54/2077.nvim",
+		priority = 1000,
+	},
+	{
+		"maxmx03/fluoromachine.nvim",
+		priority = 1000,
+		opts = {
+			transparent = true,
+			glow = false,
+		},
+		config = true,
+	},
 }

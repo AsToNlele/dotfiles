@@ -35,7 +35,7 @@ return {
         "lua_ls",
         "emmet_ls",
         "prismals",
-        "rust_analyzer",
+        -- "rust_analyzer",
         -- "pyright", Using the one from pip
 	-- "jedi_language_server", testing if jedi is needed
       },

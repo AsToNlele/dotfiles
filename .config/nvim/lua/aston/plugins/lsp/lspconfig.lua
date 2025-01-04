@@ -3,6 +3,7 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"saghen/blink.cmp",
+		-- "hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
@@ -61,6 +62,7 @@ return {
 
 		-- used to enable autocompletion (assign to every lsp server config)
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
+		-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
 		-- (not in youtube nvim video)
@@ -182,6 +184,12 @@ return {
 		-- 		}
 		-- 	}
 		-- })
+		--
+		lspconfig["jinja_lsp"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({
@@ -204,29 +212,29 @@ return {
 			},
 		})
 
-		lspconfig["rust_analyzer"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
-				["rust-analyzer"] = {
-					check = {
-						command = "clippy",
-					},
-					diagnostics = {
-						enable = true,
-						experimental = {
-							enable = true,
-						},
-					},
-					inlayHints = {
-						enable = true,
-						typeHints = true,
-						parameterHints = true,
-						chainingHints = false,
-					},
-				},
-			},
-		})
+		-- lspconfig["rust_analyzer"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	settings = {
+		-- 		["rust-analyzer"] = {
+		-- 			check = {
+		-- 				command = "clippy",
+		-- 			},
+		-- 			diagnostics = {
+		-- 				enable = true,
+		-- 				experimental = {
+		-- 					enable = true,
+		-- 				},
+		-- 			},
+		-- 			inlayHints = {
+		-- 				enable = true,
+		-- 				typeHints = true,
+		-- 				parameterHints = true,
+		-- 				chainingHints = false,
+		-- 			},
+		-- 		},
+		-- 	},
+		-- })
 
 		-- configure tailwindcss server
 		lspconfig["dartls"].setup({

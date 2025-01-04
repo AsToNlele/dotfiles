@@ -34,6 +34,3 @@ Font: [IosevkaTerm Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/d
    `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 2. Open a tmux session
 3. `prefix` + <kbd>I</kbd> to install plugins
-
-### Get theme
-1. `git clone https://github.com/AsToNlele/tmux-theme.git ~/.tmux/plugins/tmux-theme`
