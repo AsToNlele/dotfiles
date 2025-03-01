@@ -1,0 +1,117 @@
+" Set space as leader key
+let mapleader = " "
+
+nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>rr :e ~/.ideavimrc<CR>
+nnoremap <leader>rs :action IdeaVim.ReloadVimRc.reload<CR>
+
+" Enable IdeaVim plugins
+set surround
+set commentary
+set multiple-cursors
+set easymotion
+set highlightedyank
+
+" LSP-like mappings based on Neovim config
+" Show references
+nmap gR :action FindUsages<CR>
+
+" Go to declaration
+nmap gD :action GotoDeclaration<CR>
+
+" Show definitions
+nmap gd :action GotoDefinition<CR>
+
+" Show implementations
+nmap gi :action GotoImplementation<CR>
+
+" Show type definitions
+nmap gt :action GotoTypeDeclaration<CR>
+
+" Code actions
+nmap <leader>ga :action ShowIntentionActions<CR>
+vmap <leader>ga :action ShowIntentionActions<CR>
+
+" Smart rename
+nmap <leader>rn :action RenameElement<CR>
+
+" Show buffer diagnostics
+nmap <leader>D :action ShowErrorDescription<CR>
+
+" Show line diagnostics
+nmap <leader>d :action ShowErrorDescription<CR>
+
+" Go to previous diagnostic
+nmap [d :action GotoPreviousError<CR>
+
+" Go to next diagnostic
+nmap ]d :action GotoNextError<CR>
+
+" Show documentation
+nmap <leader>k :action QuickJavaDoc<CR>
+
+" Telescope-like mappings
+" Find files
+nmap <leader>ff :action GotoFile<CR>
+
+" Find text (grep)
+nmap <leader>fw :action FindInPath<CR>
+
+" List buffers
+nmap <leader>fb :action Switcher<CR>
+
+" Help tags
+nmap <leader>fh :action GotoAction<CR>
+
+" Resume last search
+nmap <leader>fr :action FindInPath<CR>
+
+" Buffer management
+nmap <leader>bx :action CloseContent<CR>
+nmap <leader>bq :action CloseContent<CR>
+nmap <leader>be :action CloseAllEditorsButActive<CR>
+nmap <leader>ba :action CloseAllEditors<CR>
+
+" Code formatting
+nmap <leader>gF :action ReformatCode<CR>
+nmap <leader>gE :action Javascript.Linters.EsLint.Fix<CR>
+
+" Buffer navigation (closest equivalents)
+nmap <leader>l :action NextTab<CR>
+nmap <leader>h :action PreviousTab<CR>
+
+" Clear search highlights
+nmap <Esc> :nohls<CR>
+
+" Centered scrolling
+" Note: IdeaVim doesn't support 'zz' after motion, but we include the basic mapping
+nmap <C-d> <C-d>
+nmap <C-u> <C-u>
+
+" Git integration
+nmap <leader>G :action ActivateCommitToolWindow<CR>
+
+" Save and quit mappings
+nmap <leader>w :write<CR>
+nmap <leader>qq :q!<CR>
+nmap <leader>qa :qa!<CR>
+
+nnoremap <leader>1 :buffer 1<CR>
+nnoremap <leader>2 :buffer 2<CR>
+nnoremap <leader>3 :buffer 3<CR>
+nnoremap <leader>4 :buffer 4<CR>
+nnoremap <leader>5 :buffer 5<CR>
+nnoremap <leader>6 :buffer 6<CR>
+nnoremap <leader>7 :buffer 7<CR>
+nnoremap <leader>8 :buffer 8<CR>
+nnoremap <leader>9 :buffer 9<CR>
+
+" Additional useful IdeaVim settings
+set ideajoin
+set idearefactormode=keep
+set clipboard+=unnamed
+set clipboard+=ideaput
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
