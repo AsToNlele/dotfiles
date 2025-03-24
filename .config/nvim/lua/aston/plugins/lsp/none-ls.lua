@@ -1,5 +1,5 @@
 return {
-	"nvimtools/none-ls.nvim",            -- configure formatters & linters
+	"nvimtools/none-ls.nvim", -- configure formatters & linters
 	lazy = true,
 	event = { "BufReadPre", "BufNewFile" }, -- to enable uncomment this
 	dependencies = {
@@ -22,6 +22,7 @@ return {
 				-- "pylint", -- python linter
 				-- "eslint_d", -- js linter
 				"php-cs-fixer",
+				"djlint",
 			},
 		})
 
@@ -42,11 +43,12 @@ return {
 				--  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
 				formatting.prettier.with({
 					extra_filetypes = { "astro", "html" },
-				}),    -- js/ts formatter
+				}), -- js/ts formatter
 				formatting.stylua, -- lua formatter
 				formatting.isort,
 				formatting.black,
 				formatting.dart_format,
+				formatting.djlint,
 				-- diagnostics.pylint,
 				-- diagnostics.pyright,
 				-- diagnostics.eslint_d

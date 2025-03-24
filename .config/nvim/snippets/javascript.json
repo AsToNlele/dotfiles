@@ -2,5 +2,9 @@
   "consolelog": {
     "prefix": "cl",
     "body": "console.log(${1:hi})"
+  },
+  "consolelogg": {
+    "prefix": "clg",
+    "body": "console.log(${1:hi})"
   }
 }

@@ -62,6 +62,7 @@ return {
 
 		-- used to enable autocompletion (assign to every lsp server config)
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
+		capabilities.textDocument.completion.completionItem.snippetSupport = true
 		-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
@@ -123,34 +124,21 @@ return {
 		})
 
 		-- configure svelte server
-		lspconfig["svelte"].setup({
-			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				on_attach(client, bufnr)
-
-				vim.api.nvim_create_autocmd("BufWritePost", {
-					pattern = { "*.js", "*.ts" },
-					callback = function(ctx)
-						if client.name == "svelte" then
-							client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
-						end
-					end,
-				})
-			end,
-		})
-
-		-- configure prisma orm server
-		lspconfig["prismals"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- configure graphql language server
-		lspconfig["graphql"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-		})
+		-- lspconfig["svelte"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = function(client, bufnr)
+		-- 		on_attach(client, bufnr)
+		--
+		-- 		vim.api.nvim_create_autocmd("BufWritePost", {
+		-- 			pattern = { "*.js", "*.ts" },
+		-- 			callback = function(ctx)
+		-- 				if client.name == "svelte" then
+		-- 					client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
+		-- 				end
+		-- 			end,
+		-- 		})
+		-- 	end,
+		-- })
 
 		-- configure emmet language server
 		lspconfig["emmet_ls"].setup({
@@ -185,11 +173,6 @@ return {
 		-- 	}
 		-- })
 		--
-		lspconfig["jinja_lsp"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
 
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({
@@ -237,10 +220,10 @@ return {
 		-- })
 
 		-- configure tailwindcss server
-		lspconfig["dartls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
+		-- lspconfig["dartls"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- })
 
 		lspconfig["astro"].setup({
 			capabilities = capabilities,
@@ -253,6 +236,12 @@ return {
 		})
 
 		lspconfig["clangd"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+		local pid = vim.fn.getpid()
+		lspconfig["omnisharp"].setup({
+			cmd = { "OmniSharp", "--languageserver", "--hostPID", tostring(pid) },
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})

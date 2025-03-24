@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.8",
+		-- tag = "0.1.8",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{
@@ -21,24 +21,27 @@ return {
 			-- Ctrl + T
 			--
 			require("telescope").setup({
-				pickers = {
-					find_files = {
-						hidden = true,
-						-- no_ignore=true
-					},
-				},
+				-- pickers = {
+				-- 	find_files = {
+				-- 		hidden = true,
+				-- 		-- no_ignore=true
+				-- 	},
+				-- },
 				defaults = {
-					file_ignore_patterns = {
-						"node_modules",
-						"yarn.lock",
-						".git",
-						".sl",
-						"_build",
-						".next",
-					},
-					hidden = true,
+					-- file_ignore_patterns = {
+					-- 	"node_modules",
+					-- 	"yarn.lock",
+					-- 	".git",
+					-- 	".sl",
+					-- 	"_build",
+					-- 	".next",
+					-- },
+					-- hidden = true,
 					path_display = {
-						"filename_first",
+						-- shorten = 2
+						filename_first = {
+							reverse_directories = true,
+						},
 					},
 					layout_strategy = "vertical",
 					layout_config = { height = 0.95 },
