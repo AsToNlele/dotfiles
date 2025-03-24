@@ -1,6 +1,7 @@
 font-family="IosevkaTerm Nerd Font Mono"
 font-size=20
 font-thicken=true
-theme=dark:fluoromachine,light:catppuccin-latte
+theme=dark:fluoromachine,light:catppuccin-latte-custom
 # theme=dark:dracula,light:catppuccin-latte
 background-opacity = 0.95
+link-url=true

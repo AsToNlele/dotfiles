@@ -31,7 +31,7 @@ main() {
   thm_blue="#1e66f5"
   thm_orange="#fe640b"
   thm_black4="#acb0be"
-  thm_lightgray="#E5E9EF"
+  thm_lightgray=default
   
   tmux set-option -g status-interval 1000
   if [[ "$status" == "Dark" ]]; then
@@ -43,7 +43,8 @@ main() {
       tmux set-option -g status-style "bg=${gray},fg=${white}"
 
       tmux set-option -g status-left "#[bg=${green},fg=${dark}, bold] #S #[bg=${lightgray},fg=${white}]  #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD) "
-      tmux set-option -g status-right "#[fg=${white},bg=${pink},nobold,nounderscore,noitalics] #($current_dir/battery.sh) #[fg=${dark},bg=${yellow},bold,nounderscore,noitalics] #($current_dir/datetime.sh) "
+      # tmux set-option -g status-right "#[fg=${white},bg=${pink},nobold,nounderscore,noitalics] #($current_dir/battery.sh) #[fg=${dark},bg=${yellow},bold,nounderscore,noitalics] #($current_dir/datetime.sh) "
+      tmux set-option -g status-right ""
       tmux set-option -g status-left-length 100
       tmux set-option -g status-right-length 100
       
@@ -60,7 +61,8 @@ else
   tmux set-option -g status-style "bg=${thm_lightgray},fg=${thm_fg}"
 
   tmux set-option -g status-left "#[bg=${thm_blue},fg=${white}, bold] #S #[bg=${thm_gray},fg=${thm_blue}, nobold]  #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD) "
-  tmux set-option -g status-right "#[fg=${white},bg=${thm_pink},nobold,nounderscore,noitalics] #($current_dir/battery.sh) #[fg=${thm_bg},bg=${thm_blue},bold,nounderscore,noitalics] #($current_dir/datetime.sh) "
+  # tmux set-option -g status-right "#[fg=${white},bg=${thm_pink},nobold,nounderscore,noitalics] #($current_dir/battery.sh) #[fg=${thm_bg},bg=${thm_blue},bold,nounderscore,noitalics] #($current_dir/datetime.sh) "
+  tmux set-option -g status-right ""
   tmux set-option -g status-left-length 100
   tmux set-option -g status-right-length 100
   

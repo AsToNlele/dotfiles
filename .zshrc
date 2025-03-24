@@ -23,6 +23,7 @@ export HUSKY=0
 export PATH="/Users/acelakov/scripts:$PATH"
 export PATH="/Users/acelakov/dev/tmux:$PATH"
 
+export DOTNET_ASPIRE_CONTAINER_RUNTIME=podman
 alias vim=nvim
 alias v=nvim
 alias lla='ls -la'
@@ -30,8 +31,8 @@ alias cr='code . -r'
 alias c.='code .'
 alias glg='git lg'
 alias gc-='git checkout -'
-alias gci="git ci"
-alias gti="sl"
+alias gswi="git swi"
+# alias gti="sl"
 alias grc='gh repo clone'
 alias gpc="gh pr checkout"
 alias ta='tmux attach'
@@ -46,7 +47,7 @@ alias kkill='sudo kill -9'
 alias grep='ggrep'
 alias podman-compose='podman compose'
 alias docker=podman
-alias fastfetch="fastfetch --config examples/7.jsonc --kitty ~/.config/fastfetch/e36.png" 
+alias fastfetch="fastfetch --config examples/7.jsonc --kitty ~/.config/fastfetch/e36_bigger.png" 
 alias firefox="open -a Firefox\ Developer\ Edition"
 alias beep="afplay /System/Library/Sounds/Blow.aiff -v 5"
 alias pc="podman compose"
@@ -65,18 +66,21 @@ alias nsp="npm run start:proxy"
 alias nisp="cleaninstall && nsp"
 alias nspp="PROXY=true npx fec dev --clouddotEnv stage"
 alias nispp="cleaninstall && nspp"
+alias ytsong="yt-dlp --ignore-config -x --audio-format mp3 --embed-metadata --embed-thumbnail"
+alias aligr="alias | grep"
+alias lg="lazygit"
 
 # git lg
 git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 # git ci
-git config --global alias.ci '!git checkout $(git branch -a | fzf | xargs)'
+git config --global alias.swi '!git switch $(git branch -a | fzf | xargs)'
 
 
 bindkey -s ^f "tmux-sessionizer\n"
 
 # pyenv, slow af
-# eval "$(pyenv init -)"
-# if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+eval "$(pyenv init -)"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # pnpm
 export PNPM_HOME="/Users/acelakov/Library/pnpm"
@@ -106,6 +110,8 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 # PGSQL client
 export PATH="$PATH":"/opt/homebrew/Cellar/libpq/17.1/bin"
 
+# export DOTNET_ROOT="/opt/homebrew/bin/dotnet"
+# export PATH="$PATH:/Users/acelakov/.dotnet/tools"
 
 # Bonfire setup
 VENV_DIR=~/bonfire_venv
@@ -138,3 +144,4 @@ starttransfer:  %{time_starttransfer}s\n\
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # zprof
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
