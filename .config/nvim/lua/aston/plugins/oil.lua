@@ -43,4 +43,13 @@ return {
 			vim.keymap.set("n", "<leader>e", require("oil").toggle_float, { desc = "Toggle file explorer" }) -- toggle file explorer
 		end,
 	},
+	{
+		"refractalize/oil-git-status.nvim",
+
+		dependencies = {
+			"stevearc/oil.nvim",
+		},
+
+		config = true,
+	},
 }
