@@ -14,6 +14,11 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+
+compinit
+eval "$(zoxide init zsh)"
+
+
 export EDITOR='nvim'
 export VISUAL='nvim'
 export DISABLE_AUTO_TITLE="true"
