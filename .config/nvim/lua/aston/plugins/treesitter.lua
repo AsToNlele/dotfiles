@@ -42,7 +42,9 @@ return {
           "gitignore",
           "query",
 	  "python",
-          "astro"
+          "astro",
+          "ninja",
+          "rst"
         },
         incremental_selection = {
           enable = true,

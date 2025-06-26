@@ -23,6 +23,7 @@ api.nvim_create_autocmd({ "TextYankPost" }, {
 -- Delete all buffers expect current
 api.nvim_create_user_command("BufCurOnly", "%bdelete|edit#|bdelete#", {})
 
+o.smartindent = true
 o.tabstop = 4 -- A TAB character looks like 4 spaces
 o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
 o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character

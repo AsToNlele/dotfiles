@@ -20,18 +20,18 @@ return {
 						cmp.show()
 					end,
 				},
-				["<C-s>"] = {
-					function(cmp)
-						print("CTRL S")
-
-						cmp.show({ providers = { "snippets" } })
-					end,
-				},
+				-- ["<C-s>"] = {
+				-- 	function(cmp)
+				-- 		print("CTRL S")
+				--
+				-- 		cmp.show({ providers = { "snippets" } })
+				-- 	end,
+				-- },
 				["<C-space>"] = {},
 				["<Tab>"] = {},
 			},
 			cmdline = {
-				enabled = true,
+				enabled = false,
 				completion = {
 					menu = { auto_show = true },
 				},
@@ -57,7 +57,7 @@ return {
 			},
 			signature = { enabled = true },
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "omni", "cmdline" },
+				default = { "lsp", "path", "snippets", "buffer", "cmdline" },
 			},
 		},
 		opts_extend = { "sources.default" },

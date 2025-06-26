@@ -14,9 +14,9 @@ return {
 
 		local opts = { noremap = true, silent = true }
 		local on_attach = function(client, bufnr)
-			-- if vim.lsp.inlay_hint then
-			-- 	vim.lsp.inlay_hint.enable(true, { 0 })
-			-- end
+			if vim.lsp.inlay_hint then
+				vim.lsp.inlay_hint.enable(true, { 0 })
+			end
 			opts.buffer = bufnr
 
 			-- set keybinds
@@ -52,9 +52,6 @@ return {
 
 			opts.desc = "Go to next diagnostic"
 			keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
-
-			opts.desc = "Show inline documentation for what is under cursor"
-			keymap.set("n", "<leader>k", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
 			opts.desc = "Restart LSP"
 			keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
@@ -148,11 +145,11 @@ return {
 		})
 
 		-- configure python server
-		-- lspconfig["pyright"].setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- 	filetypes = { "python" },
-		-- })
+		lspconfig["pyright"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "python" },
+		})
 
 		lspconfig["eslint"].setup({
 			-- pnpm i -g vscode-langservers-extracted
@@ -193,6 +190,12 @@ return {
 					},
 				},
 			},
+		})
+
+		lspconfig["ruff"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			-- filetypes = { "python" },
 		})
 
 		-- lspconfig["rust_analyzer"].setup({

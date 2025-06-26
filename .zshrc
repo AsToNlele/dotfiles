@@ -74,6 +74,7 @@ alias nispp="cleaninstall && nspp"
 alias ytsong="yt-dlp --ignore-config -x --audio-format mp3 --embed-metadata --embed-thumbnail"
 alias aligr="alias | grep"
 alias lg="lazygit"
+alias rg="rg --hidden --glob '!.git'"
 
 # git lg
 git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
@@ -150,3 +151,9 @@ starttransfer:  %{time_starttransfer}s\n\
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # zprof
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# Extend history
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=1000000000
+export SAVEHIST=1000000000
+setopt EXTENDED_HISTORY
