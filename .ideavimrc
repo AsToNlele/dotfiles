@@ -20,7 +20,9 @@ nmap gR :action FindUsages<CR>
 nmap gD :action GotoDeclaration<CR>
 
 " Show definitions
-nmap gd :action GotoDefinition<CR>
+
+nmap gd :action GotoDeclaration<CR>
+"nmap gd :action GotoDefinition<CR>
 
 " Show implementations
 nmap gi :action GotoImplementation<CR>

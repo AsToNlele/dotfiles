@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Check if a URL was provided
+if [ -z "$1" ]; then
+    echo "Usage: xdown <url>"
+    exit 1
+fi
+
+# Store the input URL
+URL="$1"
+
+# Replace 'x.com' with 'twitter.com' using bash string replacement
+# This syntax replaces the first occurrence of x.com
+CLEAN_URL="${URL/x.com/twitter.com}"
+
+# Run yt-dlp with the modified URL
+yt-dlp "$CLEAN_URL"

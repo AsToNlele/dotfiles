@@ -231,6 +231,14 @@ return {
 		lspconfig["astro"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			cmd = { "astro-ls", "--stdio" },
+			init_options = {
+				typescript = {
+					serverPath = vim.fs.normalize(
+						"~/.local/share/nvim/mason/packages/typescript-language-server/node_modules/typescript/lib/tsserverlibrary.js"
+					),
+				},
+			},
 		})
 
 		lspconfig["intelephense"].setup({

@@ -1,34 +1,35 @@
 {
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.2",
   "schemes" : [
     {
       "if" : {
         "device" : {
+          "category" : "mouse",
           "productID" : "0xb023",
           "productName" : "MX Master 3",
-          "vendorID" : "0x46d",
           "serialNumber" : "8D2F5E2DD41D706B",
-          "category" : "mouse"
+          "vendorID" : "0x46d"
         }
       },
       "scrolling" : {
         "acceleration" : {
           "vertical" : 1
         },
-        "speed" : {
-          "vertical" : 3
-        },
         "reverse" : {
           "vertical" : false
+        },
+        "speed" : {
+          "vertical" : 3
         }
       }
     },
     {
       "if" : {
         "device" : {
-          "vendorID" : "0x10c4",
-          "productID" : "0x8108",
           "category" : "mouse",
-          "productName" : "USB OPTICAL MOUSE"
+          "productID" : "0x8108",
+          "productName" : "USB OPTICAL MOUSE",
+          "vendorID" : "0x10c4"
         }
       },
       "scrolling" : {
@@ -41,8 +42,8 @@
       "if" : {
         "device" : {
           "category" : "trackpad",
-          "productName" : "Apple Internal Keyboard \/ Trackpad",
           "productID" : "0x0",
+          "productName" : "Apple Internal Keyboard \/ Trackpad",
           "vendorID" : "0x0"
         }
       },
@@ -52,6 +53,5 @@
         }
       }
     }
-  ],
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0"
+  ]
 }

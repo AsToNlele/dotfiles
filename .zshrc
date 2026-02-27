@@ -27,8 +27,11 @@ export LANG=en_US.UTF-8
 export HUSKY=0
 export PATH="/Users/acelakov/scripts:$PATH"
 export PATH="/Users/acelakov/dev/tmux:$PATH"
+# export PATH="/Users/aston/.dotnet:$PATH"
+# export DOTNET_ROOT="/Users/aston/.dotnet"
+# export PATH="$PATH:/Users/aston/.dotnet/tools"
 
-export DOTNET_ASPIRE_CONTAINER_RUNTIME=podman
+# export DOTNET_ASPIRE_CONTAINER_RUNTIME=podman
 alias vim=nvim
 alias v=nvim
 alias lla='ls -la'
@@ -50,12 +53,12 @@ alias p=pnpm
 alias nvimdiff='nvim -d'
 alias kkill='sudo kill -9'
 alias grep='ggrep'
-alias podman-compose='podman compose'
-alias docker=podman
+# alias podman-compose='podman compose'
+# alias docker=podman
 alias fastfetch="fastfetch --config examples/7.jsonc --kitty ~/.config/fastfetch/e36.png" 
 alias firefox="open -a Firefox\ Developer\ Edition"
 alias beep="afplay /System/Library/Sounds/Blow.aiff -v 5"
-alias pc="podman compose"
+# alias pc="podman compose"
 alias nr="npm run"
 alias ls="lsd"
 
@@ -81,12 +84,14 @@ git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(ye
 # git ci
 git config --global alias.swi '!git switch $(git branch -a | fzf | xargs)'
 
+export PATH="$HOME/scripts:$PATH"
+
 
 bindkey -s ^f "tmux-sessionizer\n"
 
 # pyenv, slow af
-eval "$(pyenv init -)"
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+# eval "$(pyenv init -)"
+# if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # pnpm
 export PNPM_HOME="/Users/acelakov/Library/pnpm"
@@ -157,3 +162,39 @@ export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000000
 export SAVEHIST=1000000000
 setopt EXTENDED_HISTORY
+
+
+# Herd injected PHP binary.
+export PATH="/Users/aston/Library/Application Support/Herd/bin/":$PATH
+
+
+# Herd injected PHP 8.2 configuration.
+export HERD_PHP_82_INI_SCAN_DIR="/Users/aston/Library/Application Support/Herd/config/php/82/"
+
+
+# Herd injected PHP 8.4 configuration.
+export HERD_PHP_84_INI_SCAN_DIR="/Users/aston/Library/Application Support/Herd/config/php/84/"
+
+
+# Herd injected PHP 8.1 configuration.
+export HERD_PHP_81_INI_SCAN_DIR="/Users/aston/Library/Application Support/Herd/config/php/81/"
+
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+
+alias mergepdf="gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages -dCompressFonts=true -r150 -sOutputFile=output.pdf *.pdf"
+
+# opencode
+export PATH=/Users/aston/.opencode/bin:$PATH
+
+
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+eval "$(pyenv virtualenv-init -)"
+
+
+# sumo
+
+export SUMO_HOME="/Library/Frameworks/EclipseSUMO.framework/Versions/Current/EclipseSUMO/share/sumo"
+export PATH="$SUMO_HOME/bin:$PATH"
