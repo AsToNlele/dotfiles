@@ -31,7 +31,6 @@ export PATH="/Users/acelakov/dev/tmux:$PATH"
 # export DOTNET_ROOT="/Users/aston/.dotnet"
 # export PATH="$PATH:/Users/aston/.dotnet/tools"
 
-# export DOTNET_ASPIRE_CONTAINER_RUNTIME=podman
 alias vim=nvim
 alias v=nvim
 alias lla='ls -la'
@@ -55,26 +54,17 @@ alias kkill='sudo kill -9'
 alias grep='ggrep'
 # alias podman-compose='podman compose'
 # alias docker=podman
-alias fastfetch="fastfetch --config examples/7.jsonc --kitty ~/.config/fastfetch/e36.png" 
-alias firefox="open -a Firefox\ Developer\ Edition"
 alias beep="afplay /System/Library/Sounds/Blow.aiff -v 5"
 # alias pc="podman compose"
 alias nr="npm run"
 alias ls="lsd"
 
 alias cleaninstall="rm -rf node_modules && npm i"
-alias rh="sh ~/rh.sh"
-alias nrs="npm run start:proxy"
-alias nirs="cleaninstall && npm run start:proxy"
-alias nrsb="npm run start:proxy:beta"
-alias nirsb="cleaninstall && npm run start:proxy:beta"
 alias ni="npm i"
 alias ns="npm start"
-alias nsp="npm run start:proxy"
-alias nisp="cleaninstall && nsp"
-alias nspp="PROXY=true npx fec dev --clouddotEnv stage"
-alias nispp="cleaninstall && nspp"
-alias ytsong="yt-dlp --ignore-config -x --audio-format mp3 --embed-metadata --embed-thumbnail"
+alias ytsong="yt-dlp -x --audio-format mp3 --embed-metadata --embed-thumbnail"
+alias ytvid="yt-dlp -t mp4"
+alias igreal="yt-dlp -t mp4 -P ~/Documents/reals"
 alias aligr="alias | grep"
 alias lg="lazygit"
 alias rg="rg --hidden --glob '!.git'"
@@ -87,7 +77,8 @@ git config --global alias.swi '!git switch $(git branch -a | fzf | xargs)'
 export PATH="$HOME/scripts:$PATH"
 
 
-bindkey -s ^f "tmux-sessionizer\n"
+# bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s ^f "tmux-devssionizer\n"
 
 # pyenv, slow af
 # eval "$(pyenv init -)"

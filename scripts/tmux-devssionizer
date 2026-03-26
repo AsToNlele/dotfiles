@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(find ~/dev -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+
+if ! tmux has-session -t="$selected_name" 2> /dev/null; then
+    tmux new-session -ds "$selected_name" -c "$selected"
+fi
+
+tmux kill-window -t "$selected_name:ide" 2> /dev/null || true
+tmux new-window -d -t "$selected_name" -n ide -c "$selected"
+
+top_left=$(tmux display-message -p -t "$selected_name:ide" '#{pane_id}')
+bottom=$(tmux split-window -v -p 5 -t "$top_left" -c "$selected" -P -F '#{pane_id}')
+top_right=$(tmux split-window -h -t "$top_left" -c "$selected" -P -F '#{pane_id}')
+
+tmux send-keys -t "$top_left" 'nvim .' C-m
+tmux send-keys -t "$top_right" 'opencode .' C-m
+tmux send-keys -t "$bottom" "cd \"$selected\"" C-m
+tmux resize-pane -t "$bottom" -x 10
+tmux select-pane -t "$bottom" 
+tmux select-window -t "$selected_name:ide"
+
+if [[ -n ${TMUX:-} ]]; then
+    tmux switch-client -t "$selected_name:ide"
+else
+    tmux attach-session -t "$selected_name"
+fi
