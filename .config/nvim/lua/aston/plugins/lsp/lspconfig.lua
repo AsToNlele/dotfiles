@@ -7,12 +7,14 @@ return {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
-		-- import lspconfig plugin
-		local lspconfig = require("lspconfig")
-
 		local keymap = vim.keymap -- for conciseness
 
 		local opts = { noremap = true, silent = true }
+		local function setup_server(server, config)
+			vim.lsp.config(server, config or {})
+			vim.lsp.enable(server)
+		end
+
 		local on_attach = function(client, bufnr)
 			if vim.lsp.inlay_hint then
 				vim.lsp.inlay_hint.enable(true, { 0 })
@@ -71,7 +73,7 @@ return {
 		end
 
 		-- configure html server
-		lspconfig["html"].setup({
+		setup_server("html", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
@@ -86,7 +88,7 @@ return {
 		end
 
 		-- configure typescript server with plugin
-		lspconfig["ts_ls"].setup({
+		setup_server("ts_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			init_options = {
@@ -109,19 +111,19 @@ return {
 		})
 
 		-- configure css server
-		lspconfig["cssls"].setup({
+		setup_server("cssls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
 		-- configure tailwindcss server
-		lspconfig["tailwindcss"].setup({
+		setup_server("tailwindcss", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
 		-- configure svelte server
-		-- lspconfig["svelte"].setup({
+		-- setup_server("svelte", {
 		-- 	capabilities = capabilities,
 		-- 	on_attach = function(client, bufnr)
 		-- 		on_attach(client, bufnr)
@@ -138,26 +140,32 @@ return {
 		-- })
 
 		-- configure emmet language server
-		lspconfig["emmet_ls"].setup({
+		setup_server("emmet_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 		})
 
 		-- configure python server
-		lspconfig["pyright"].setup({
+		setup_server("pyright", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "python" },
 		})
 
-		lspconfig["eslint"].setup({
+
+		setup_server("texlab", {
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		setup_server("eslint", {
 			-- pnpm i -g vscode-langservers-extracted
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
-		-- lspconfig["jedi_language_server"].setup({
+		-- setup_server("jedi_language_server", {
 		-- 	capabilities = capabilities,
 		-- 	on_attach = on_attach,
 		-- 	settings = { -- custom settings for lua
@@ -172,7 +180,7 @@ return {
 		--
 
 		-- configure lua server (with special settings)
-		lspconfig["lua_ls"].setup({
+		setup_server("lua_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = { -- custom settings for lua
@@ -192,13 +200,13 @@ return {
 			},
 		})
 
-		lspconfig["ruff"].setup({
+		setup_server("ruff", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			-- filetypes = { "python" },
 		})
 
-		-- lspconfig["rust_analyzer"].setup({
+		-- setup_server("rust_analyzer", {
 		-- 	capabilities = capabilities,
 		-- 	on_attach = on_attach,
 		-- 	settings = {
@@ -223,12 +231,12 @@ return {
 		-- })
 
 		-- configure tailwindcss server
-		-- lspconfig["dartls"].setup({
+		-- setup_server("dartls", {
 		-- 	capabilities = capabilities,
 		-- 	on_attach = on_attach,
 		-- })
 
-		lspconfig["astro"].setup({
+		setup_server("astro", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			cmd = { "astro-ls", "--stdio" },
@@ -241,17 +249,17 @@ return {
 			},
 		})
 
-		lspconfig["intelephense"].setup({
+		setup_server("intelephense", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
-		lspconfig["clangd"].setup({
+		setup_server("clangd", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 		local pid = vim.fn.getpid()
-		lspconfig["omnisharp"].setup({
+		setup_server("omnisharp", {
 			cmd = { "OmniSharp", "--languageserver", "--hostPID", tostring(pid) },
 			capabilities = capabilities,
 			on_attach = on_attach,
