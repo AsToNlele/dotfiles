@@ -1,5 +1,5 @@
 return {
-	{ "Hoffs/omnisharp-extended-lsp.nvim" },
+	{ "Hoffs/omnisharp-extended-lsp.nvim", ft = "cs" },
 	{
 		"MoaidHathot/dotnet.nvim",
 		enabled = false,

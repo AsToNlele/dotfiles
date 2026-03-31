@@ -2,7 +2,7 @@ return {
 	{
 		"mrcjkb/rustaceanvim",
 		version = "^5", -- Recommended
-		lazy = false, -- This plugin is already lazy
+		ft = "rust",
 		config = function()
 			local keymap = vim.keymap -- for conciseness
 
@@ -88,6 +88,7 @@ return {
 	{
 		"saecki/crates.nvim",
 		tag = "stable",
+		ft = { "toml" },
 		config = function()
 			local function show_documentation()
 				local filetype = vim.bo.filetype

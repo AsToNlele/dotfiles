@@ -2,7 +2,7 @@ return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		enabled = true,
-		event = "BufEnter",
+		event = "BufReadPost",
 		opts = {
 			indent = {
 				char = "│",

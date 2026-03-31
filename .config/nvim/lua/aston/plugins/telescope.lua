@@ -2,7 +2,6 @@ return {
 	{
 		"folke/snacks.nvim",
 		priority = 1000,
-		lazy = false,
 		opts = {
 			picker = {
 				enabled = true,
@@ -20,8 +19,20 @@ return {
 			},
 		},
 		keys = {
-			{ "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
-			{ "<leader>fw", function() Snacks.picker.grep() end, desc = "Live grep" },
+			{
+				"<leader>ff",
+				function()
+					Snacks.picker.files({ cwd = vim.fn.getcwd() })
+				end,
+				desc = "Find files",
+			},
+			{
+				"<leader>fw",
+				function()
+					Snacks.picker.grep({ cwd = vim.fn.getcwd() })
+				end,
+				desc = "Live grep",
+			},
 			{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
 			{ "<leader>fh", function() Snacks.picker.help() end, desc = "Help tags" },
 			{ "<leader>fr", function() Snacks.picker.resume() end, desc = "Resume picker" },

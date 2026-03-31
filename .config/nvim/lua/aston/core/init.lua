@@ -3,6 +3,13 @@ local opt = vim.opt
 local g = vim.g
 local o = vim.o
 local api = vim.api
+local is_windows = vim.fn.has("win32") == 1
+local path_sep = is_windows and ";" or ":"
+local mason_bin = vim.fn.stdpath("data") .. "/mason/bin"
+
+if not vim.env.PATH:find(mason_bin, 1, true) then
+	vim.env.PATH = mason_bin .. path_sep .. vim.env.PATH
+end
 
 wo.relativenumber = true
 wo.number = true

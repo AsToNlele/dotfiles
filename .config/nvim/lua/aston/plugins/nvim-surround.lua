@@ -1,5 +1,6 @@
 return {
 	"tpope/vim-surround",
+	lazy = false,
 }
 
 -- Replace html tag

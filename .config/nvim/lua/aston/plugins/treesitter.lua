@@ -1,7 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPost", "BufNewFile" },
     build = ":TSUpdate",
     dependencies = {
       "windwp/nvim-ts-autotag",
@@ -18,34 +18,34 @@ return {
         -- enable indentation
         indent = { enable = true },
         -- enable autotagging (w/ nvim-ts-autotag plugin)
-        autotag = {
-          enable = true,
-        },
-        -- ensure these language parsers are installed
-        ensure_installed = {
-          "json",
-          "javascript",
-          "typescript",
-          "tsx",
-          "yaml",
-          "html",
-          "css",
-          "prisma",
-          "markdown",
-          "markdown_inline",
-          "svelte",
-          "graphql",
-          "bash",
-          "lua",
-          "vim",
-          "dockerfile",
-          "gitignore",
-          "query",
-	  "python",
-          "astro",
-          "ninja",
-          "rst"
-        },
+	        autotag = {
+	          enable = true,
+	        },
+	        -- ensure these language parsers are installed
+	        -- ensure_installed = {
+	        --   "json",
+	        --   "javascript",
+	        --   "typescript",
+	        --   "tsx",
+	        --   "yaml",
+	        --   "html",
+	        --   "css",
+	        --   "prisma",
+	        --   "markdown",
+	        --   "markdown_inline",
+	        --   "svelte",
+	        --   "graphql",
+	        --   "bash",
+	        --   "lua",
+	        --   "vim",
+	        --   "dockerfile",
+	        --   "gitignore",
+	        --   "query",
+	        --   "python",
+	        --   "astro",
+	        --   "ninja",
+	        --   "rst",
+	        -- },
         incremental_selection = {
           enable = true,
           keymaps = {
@@ -56,9 +56,6 @@ return {
           },
         },
       })
-
-      -- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
-      require('ts_context_commentstring').setup {}
     end,
   },
 }

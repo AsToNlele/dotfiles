@@ -7,8 +7,27 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ { import = "aston.plugins" }, { import = "aston.plugins.lsp" } }, {
+  defaults = {
+    lazy = true,
+  },
   install = {
     colorscheme = { "catppuccin" },
+  },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "netrw",
+        "netrwPlugin",
+        "netrwSettings",
+        "netrwFileHandlers",
+        "gzip",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+        "rplugin",
+      },
+    },
   },
   checker = {
     enabled = true,

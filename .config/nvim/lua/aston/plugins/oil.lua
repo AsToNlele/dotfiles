@@ -9,7 +9,7 @@ return {
 	{
 		"nvim-mini/mini.files",
 		version = "*",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		lazy = false,
 		config = function()
 			require("mini.files").setup({
 				options = {

@@ -1,13 +1,15 @@
+local is_macos = vim.loop.os_uname().sysname == "Darwin"
+
 -- current colorscheme is defined in auto-dark-mode.lua as it depends on the macOS color mode
 return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
+		lazy = false,
 		priority = 1000,
 		config = function()
 			local flavour = "latte"
-			local apple_interface_style = vim.fn.system("defaults read -g AppleInterfaceStyle")
-			if apple_interface_style == "Dark\n" then
+			if is_macos and vim.fn.system("defaults read -g AppleInterfaceStyle") == "Dark\n" then
 				flavour = "mocha"
 			end
 
@@ -20,11 +22,14 @@ return {
 					},
 				},
 			})
+
+			if not is_macos then
+				vim.cmd.colorscheme("catppuccin-latte")
+			end
 		end,
 	},
 	{
 		"scottmckendry/cyberdream.nvim",
-		lazy = false,
 		priority = 1000,
 		opts = {
 			transparent = false,
@@ -41,6 +46,7 @@ return {
 	{
 		"Mofiqul/dracula.nvim",
 		name = "dracula",
+		lazy = true,
 		priority = 1000,
 		opts = {
 			transparent_bg = true, -- default false
@@ -50,18 +56,22 @@ return {
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
+		lazy = true,
 		priority = 1000,
 	},
 	{
 		"folke/tokyonight.nvim",
+		lazy = true,
 		priority = 1000,
 	},
 	{
 		"akai54/2077.nvim",
+		lazy = true,
 		priority = 1000,
 	},
 	{
 		"maxmx03/fluoromachine.nvim",
+		lazy = not is_macos,
 		priority = 1000,
 		opts = {
 			transparent = true,

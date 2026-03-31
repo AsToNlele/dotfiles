@@ -1,6 +1,7 @@
 return {
 	"f-person/auto-dark-mode.nvim",
 	lazy = false,
+	enabled = vim.loop.os_uname().sysname == "Darwin",
 	opts = {
 		update_interval = 1000,
 		set_dark_mode = function()
