@@ -7,6 +7,17 @@ local is_windows = vim.fn.has("win32") == 1
 local path_sep = is_windows and ";" or ":"
 local mason_bin = vim.fn.stdpath("data") .. "/mason/bin"
 
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
+g.loaded_netrwSettings = 1
+g.loaded_netrwFileHandlers = 1
+g.loaded_gzip = 1
+g.loaded_tarPlugin = 1
+g.loaded_2html_plugin = 1
+g.loaded_tutor_mode_plugin = 1
+g.loaded_zipPlugin = 1
+g.loaded_remote_plugins = 1
+
 if not vim.env.PATH:find(mason_bin, 1, true) then
 	vim.env.PATH = mason_bin .. path_sep .. vim.env.PATH
 end

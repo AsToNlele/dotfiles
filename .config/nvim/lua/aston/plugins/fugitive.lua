@@ -1,11 +1,10 @@
-return { {
-	"tpope/vim-fugitive",
-	cmd = { "G", "Git", "GBrowse", "Gdiffsplit", "Gvdiffsplit", "Gwrite", "Gread" },
-	keys = {
-		{ "<leader>G", "<cmd>G<CR>", desc = "Git status" },
-	},
-}, {
-	-- :GBrowse to open file in browser
-	"tpope/vim-rhubarb",
-	lazy = true,
-} }
+local pack = require("aston.pack")
+
+pack.add({
+	pack.repo("tpope/vim-fugitive"),
+	pack.repo("tpope/vim-rhubarb"),
+})
+
+vim.keymap.set("n", "<leader>G", function()
+	vim.cmd("G")
+end, { desc = "Git status" })

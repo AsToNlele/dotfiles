@@ -1,9 +1,10 @@
-return {
-	{
-		"mrcjkb/rustaceanvim",
-		version = "^5", -- Recommended
-		ft = "rust",
-		config = function()
+local pack = require("aston.pack")
+
+pack.add({
+	pack.repo("mrcjkb/rustaceanvim", { version = vim.version.range("5.x") }),
+	pack.repo("saecki/crates.nvim", { version = "stable" }),
+})
+
 			local keymap = vim.keymap -- for conciseness
 
 			local opts = { noremap = true, silent = true }
@@ -83,13 +84,7 @@ return {
 				-- DAP configuration
 				dap = {},
 			}
-		end,
-	},
-	{
-		"saecki/crates.nvim",
-		tag = "stable",
-		ft = { "toml" },
-		config = function()
+
 			local function show_documentation()
 				local filetype = vim.bo.filetype
 				if filetype == "vim" or filetype == "help" then
@@ -130,8 +125,4 @@ return {
 			vim.keymap.set("n", "<leader>cC", crates.open_crates_io, opts)
 			vim.keymap.set("n", "<leader>cL", crates.open_lib_rs, opts)
 
-			crates.setup();
-
-		end,
-	},
-}
+			crates.setup()

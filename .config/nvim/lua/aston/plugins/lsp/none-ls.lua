@@ -1,11 +1,10 @@
-return {
-	"nvimtools/none-ls.nvim", -- configure formatters & linters
-	lazy = true,
-	event = { "BufReadPost", "BufNewFile" }, -- to enable uncomment this
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-	},
-	config = function()
+local pack = require("aston.pack")
+
+pack.add({
+	pack.repo("nvimtools/none-ls.nvim"),
+	pack.repo("nvim-lua/plenary.nvim"),
+})
+
 		local null_ls = require("null-ls")
 
 		local null_ls_utils = require("null-ls.utils")
@@ -46,7 +45,7 @@ return {
 		end
 
 		-- configure null_ls
-		null_ls.setup({
+	null_ls.setup({
 			-- add package.json as identifier for root (for typescript monorepos)
 			root_dir = null_ls_utils.root_pattern(".null-ls-root", "Makefile", ".git", "package.json"),
 			-- setup formatters & linters
@@ -56,12 +55,12 @@ return {
 				formatting.prettier.with({
 					extra_filetypes = { "astro", "html" },
 				}), -- js/ts formatter
-				formatting.stylua, -- lua formatter
-				formatting.isort,
-				formatting.black,
-				formatting.dart_format,
-				formatting.djlint,
-				formatting.blade_formatter,
+				-- formatting.stylua, -- lua formatter
+				-- formatting.isort,
+				-- formatting.black,
+				-- formatting.dart_format,
+				-- formatting.djlint,
+				-- formatting.blade_formatter,
 				-- diagnostics.pylint,
 				-- diagnostics.pyright,
 				-- diagnostics.eslint_d
@@ -93,6 +92,4 @@ return {
 			-- 		})
 			-- 	end
 			-- end,
-		})
-	end,
-}
+	})

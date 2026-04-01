@@ -1,25 +1,16 @@
-return {
-  "numToStr/Comment.nvim",
-  keys = {
-    { "gc", mode = { "n", "v" } },
-    { "gb", mode = { "n", "v" } },
-  },
-  dependencies = {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-  },
-  config = function()
-    -- import comment plugin safely
-    local comment = require("Comment")
+local pack = require("aston.pack")
 
-    local ts_context_commentstring = require("ts_context_commentstring.integrations.comment_nvim")
+pack.add({
+	pack.repo("numToStr/Comment.nvim"),
+	pack.repo("JoosepAlviste/nvim-ts-context-commentstring"),
+})
 
-    -- enable comment
-    comment.setup({
-      -- for commenting tsx and jsx files
-      pre_hook = ts_context_commentstring.create_pre_hook(),
-    })
-  end,
-}
+local comment = require("Comment")
+local ts_context_commentstring = require("ts_context_commentstring.integrations.comment_nvim")
+
+comment.setup({
+	pre_hook = ts_context_commentstring.create_pre_hook(),
+})
 -- Not good enough yet eg for Dart
 -- -- Correct commenting for React, Vue, etc
 -- return {

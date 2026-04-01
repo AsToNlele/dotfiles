@@ -1,12 +1,13 @@
-return {
-	"neovim/nvim-lspconfig",
-	event = { "BufReadPost", "BufNewFile" },
-	dependencies = {
-		"saghen/blink.cmp",
-		-- "hrsh7th/cmp-nvim-lsp",
-		{ "antosha417/nvim-lsp-file-operations", config = true },
-	},
-	config = function()
+local pack = require("aston.pack")
+
+pack.add({
+	pack.repo("neovim/nvim-lspconfig"),
+	pack.repo("saghen/blink.cmp", { version = vim.version.range("*") }),
+	pack.repo("antosha417/nvim-lsp-file-operations"),
+})
+
+require("lsp-file-operations").setup()
+
 		local keymap = vim.keymap -- for conciseness
 
 		local opts = { noremap = true, silent = true }
@@ -264,5 +265,3 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
-	end,
-}
