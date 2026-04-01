@@ -79,4 +79,8 @@ return {
 		},
 		config = true,
 	},
+    {
+        "oneslash/helix-nvim",
+        priority = 1000,
+    }
 }

@@ -189,3 +189,4 @@ eval "$(pyenv virtualenv-init -)"
 
 export SUMO_HOME="/Library/Frameworks/EclipseSUMO.framework/Versions/Current/EclipseSUMO/share/sumo"
 export PATH="$SUMO_HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
