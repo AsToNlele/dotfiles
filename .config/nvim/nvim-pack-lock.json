@@ -30,6 +30,10 @@
       "rev": "a7788416689dbefea659d9e9415c87926b0ba5d8",
       "src": "https://github.com/catppuccin/nvim"
     },
+    "conform.nvim": {
+      "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
     "crates.nvim": {
       "rev": "afcd1cc3eeceb5783676fc8464389b9216a29d05",
       "src": "https://github.com/saecki/crates.nvim",
@@ -92,6 +96,10 @@
       "rev": "4b0a6207341d895b6cfe9bcb1e4d3e8607bfe4f4",
       "src": "https://github.com/echasnovski/mini.ai"
     },
+    "mini.clue": {
+      "rev": "3012ba5349b2ef725c5e418a581174edc5c19dc3",
+      "src": "https://github.com/nvim-mini/mini.clue"
+    },
     "mini.files": {
       "rev": "22c64f010eef047ed270e29e7cc266cd4740787e",
       "src": "https://github.com/nvim-mini/mini.files",
@@ -100,6 +108,10 @@
     "mini.pairs": {
       "rev": "b7fde3719340946feb75017ef9d75edebdeb0566",
       "src": "https://github.com/echasnovski/mini.pairs"
+    },
+    "mini.surround": {
+      "rev": "d205d1741d1fcc1f3117b4e839bf00f74ad72fa2",
+      "src": "https://github.com/nvim-mini/mini.surround"
     },
     "noice.nvim": {
       "rev": "7bfd942445fb63089b59f97ca487d605e715f155",

@@ -190,3 +190,8 @@ eval "$(pyenv virtualenv-init -)"
 export SUMO_HOME="/Library/Frameworks/EclipseSUMO.framework/Versions/Current/EclipseSUMO/share/sumo"
 export PATH="$SUMO_HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/aston/.lmstudio/bin"
+# End of LM Studio CLI section
+

@@ -27,10 +27,18 @@ Map("n", "<leader>be", "<cmd>:BufCurOnly<CR>")
 Map("n", "<leader>ba", "<cmd>::%bd<CR>")
 
 Map("n", "<leader>gf", function()
-	vim.lsp.buf.format({ timeout_ms = 2000 })
+	require("conform").format({ async = false, lsp_format = "fallback", timeout_ms = 2000 })
 end)
 
-Map("n", "<leader>ge", "<cmd>:EslintFixAll<CR>")
+Map("n", "<leader>ge", function()
+	vim.lsp.buf.code_action({
+		apply = true,
+		context = {
+			only = { "source.fixAll.eslint" },
+			diagnostics = {},
+		},
+	})
+end)
 
 -- Map Esc to :nohl
 Map("n", "<Esc>", "<cmd>nohl<CR>")
