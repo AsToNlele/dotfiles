@@ -24,4 +24,5 @@ vim.lsp.enable({
 	"intelephense",
 	"clangd",
 	"omnisharp",
+	"sourcekit_lsp",
 })
