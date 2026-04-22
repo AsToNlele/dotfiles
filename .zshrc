@@ -195,3 +195,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/Users/aston/.lmstudio/bin"
 # End of LM Studio CLI section
 
+# XCODE
+export DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer"
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi

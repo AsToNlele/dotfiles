@@ -95,6 +95,10 @@ function M.setup()
 			},
 		},
 	})
+	vim.lsp.config("sourcekit_lsp", {
+		cmd = { "xcrun", "sourcekit-lsp" },
+		filetypes = { "swift", "objc", "objcpp" },
+	})
 end
 
 return M

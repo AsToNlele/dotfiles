@@ -51,4 +51,4 @@ Map("n", "<C-u>", "<C-u>zz")
 Map("n", "<leader>G", "<cmd>:G<CR>")
 
 -- Code action
-Map({"n", "v"}, "ga", "<cmd>:lua vim.lsp.buf.code_action()<CR>")
+Map({ "n", "v" }, "ga", "<cmd>:lua vim.lsp.buf.code_action()<CR>")
